@@ -1,2 +1,9 @@
-# hello.py
-print("Hello, GitHub!")
+from scapy.all import sniff
+
+# Define a function to process packets
+def packet_callback(packet):
+    print(f"Packet captured: {packet.summary()}")
+
+# Start sniffing
+print("Starting packet sniffing...")
+sniff(prn=packet_callback, store=0)  # prn: callback function to process packets, store=0: don't keep them in memory
